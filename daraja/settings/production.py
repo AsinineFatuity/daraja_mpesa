@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["calm-hollows-10312.herokuapp.com",]
 
 
 # Application definition
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -130,7 +130,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn-local")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_prod")#serves the static files to the server
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
