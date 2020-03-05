@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -83,8 +83,8 @@ DATABASES = {
 
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.parse("postgres://zoutkumemtykkc:d161114701e4125fb2f1c1a29fbf93aba7b7484d5b6aa584c968f1b949b134a3@ec2-3-231-46-238.compute-1.amazonaws.com:5432/d51ds4t5inosha"
-, conn_max_age=600)
+db_from_env=dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -128,7 +128,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_prod")#serves the static files to the server
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")#serves the static files to the server
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
