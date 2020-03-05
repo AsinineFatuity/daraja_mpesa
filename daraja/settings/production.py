@@ -128,7 +128,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")#serves the static files to the server
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn-local")#serves the static files to the server
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
